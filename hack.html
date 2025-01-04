@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required><br><br>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required><br><br>
+          
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea><br><br>
+          
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+   
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBk16IjGxe1MCLFoo8logapXb3MA-VUVHo",
+          authDomain: "hackathon-1822a.firebaseapp.com",
+          projectId: "hackathon-1822a",
+          storageBucket: "hackathon-1822a.firebasestorage.app",
+          messagingSenderId: "22724491091",
+          appId: "1:22724491091:web:010efdff22988008a853a6"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const database = getDatabase(app);
+
+// Get form elements
+const contactForm = document.getElementById('contactForm');
+
+// Add event listener to form
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Push data to Firebase
+  push(ref(database, 'contacts'), {
+    name: name,
+    email: email,
+    message: message,
+  }).then(() => {
+    alert('Message submitted successfully!');
+    contactForm.reset();
+  }).catch((error) => {
+    console.error("Error writing to Firebase:", error);
+  });
+});
+      </script>
+</body>
+</html>

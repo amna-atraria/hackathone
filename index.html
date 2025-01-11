@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-     <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- Add FontAwesome CDN link -->
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -28,20 +28,26 @@
       <p>Health</p>
       <p>Locations</p>
       <p>shope</p>
-      <h1 class="text" style="padding: 40px">
-        CDS<span style="color: hotpink">22</span>-
-        <span style="font-style: italic">formula</span>
-      </h1>
+      <img src="Assets/logo.png" alt="">
       <p>Become retailer</p>
       <p>Contact us</p>
       <p>Racipe</p>
 
-      <div class="icon">
-        <i
-          class="fas fa-shopping-cart"
-          style="font-size: 1rem; color: #333"
-        ></i>
-      </div>
+      <!-- Cart Icon and Count -->
+<div class="icon">
+  <i class="fas fa-shopping-cart" style="font-size: 1rem; color: #333"></i>
+  <div class="cart">0</div>
+</div>
+
+<!-- Cart List Container (hidden by default) -->
+<div class="cart-list-container">
+  <div class="cart-list">
+    <!-- Items will be dynamically added here -->
+  </div>
+
+</div>
+
+      
     </header>
     <!------------------------------------------------------------- header-end ----------------------------------------------------->
 
@@ -52,11 +58,11 @@
         <div class="part-1">
           <p style="font-size: 4vw; font-weight: 300">
             The
-            <span style="font-size: 5vw; font-weight: 800; font-size: 5vw"
+            <span style="font-size: 5vw; font-weight: 800; font-size: 5vw; color: rgb(3, 3, 54);"
               >De Simone Formulation</span
             >
             unique and certified by
-            <span style="color: lightseagreen; font-weight: 900"
+            <span style="color: rgb(2, 189, 179); font-weight: 900"
               >the inventor</span
             >
           </p>
@@ -98,8 +104,8 @@
               <p>SELECTED BECTERIAL STRAIN</p>
             </div>
             <div class="box">
-              <h1>900</h1>
-              <p style="width: 80%; letter-spacing: -0.003vw">
+              <h1 style="margin-top: -0px;">900</h1>
+              <p style="width: 80%; margin-top: -15px;">
                 up to 900 billion live bacteria per sachetf
               </p>
             </div>
@@ -125,7 +131,7 @@
               </p>
               <p>
                 The European Crohn s and Colitis Organization (ECCO) has
-                included the De Simone Formulation in its guidelines for the
+                included the De   one Formulation in its guidelines for the
                 management of Inflammatory Bowel Diseases (IBD) (ECCO, ECCO
                 News, 2023). CDS22-formula is highly effective in the dietary
                 management of various gastrointestinal conditions. The extensive
@@ -379,51 +385,59 @@
           tastes and needs. Each format of CDS22-formula is gluten-free and
           vegetarian.
         </p>
-        </div>
-        
-  <div class="slider-container">
-    <div class="slider">
-      <div class="card">
-        <img src="Assets/21.png" alt="Image 1">
-        <div class="card-content">
-          <h2>CDS22-formula</h2>
-          <h3>450 billion sachets</h3>
-          <p>Superior power
-
-Potency: 900 billion live bacteria per sachet</p>
-          <button>SHOP NOW</button>
-        </div>
       </div>
-
-      <div class="card">
-        <img src="Assets/20.png" alt="Image 2">
-        <div class="card-content">
-          <h2>CDS22-formula</h2>
-          <h3>450 billion sachets</h3>
-          <p>Strong and convenient
-
-Potency: 450 billion live bacteria per sachet 
-Format: Box of 12 sachets</p>
-          <button>SHOP NOW</button>
+      <div class="all-cards">
+        <!-- <button id="prev" class="slider-btn">click</button> -->
+        <div class="card">
+          <div class="image"><img src="Assets/20.png" alt=""></div>
+          <div class="card-text">
+            <h1 class="t-h">CDS22-formula</h1>
+            <h2 style="color: #e91e4a;" class="ttt mt-1">900 billion sachets</h2>
+            <p class="t-p mt-1">Superior power <br> Potency: 900 billion live bacteria per sachet</p>
+          </div>
+          <div class="C-btn">
+            <button class="add-to-cart">ADD TO CART</button>
+          </div>
         </div>
-      </div>
-
-      <div class="card">
-        <img src="Assets/19.png" alt="Image 3">
-        <div class="card-content">
-          <h2>CDS22-formula</h2>
-          <h3>900 billion sachets</h3>
-          <p>Strong and convenient
-
-Potency: 450 billion live bacteria per sachet 
-Format: Box of 12 sachets</p>
-          <button>SHOP NOW</button>
+    
+        <div class="card-2 d-flex justify-content-between mt-5">
+          <div class="card">
+            <div class="image"><img src="Assets/21.png" alt=""></div>
+            <div class="card-text">
+              <h1 class="t-h">CDS22-formula</h1>
+              <h2 style="color: #dd15a1e0;" class="ttt mt-1">450 billion sachets</h2>
+              <p class="t-p mt-1">
+                <span style="font-size: 1.4vw;">Strong and convenient </span><br>
+                Potency: <span style="font-weight: 800;">450 billion live bacteria per sachet</span> <br>
+                Format: <span style="font-weight: 800;">Box of 12 sachets</span>
+              </p>
+            </div>
+            <div class="C-btn">
+              <button class="add-to-cart">ADD TO CART</button>
+            </div>
+          </div>
         </div>
+    
+        <div class="card">
+          <div class="image"><img src="Assets/19.png" alt=""></div>
+          <div class="card-text">
+            <h1 class="t-h">CDS22-formula</h1>
+            <h2 style="color: #14a0f1;" class="ttt mt-1">112 billion capsules</h2>
+            <p>
+              <span style="font-size: 1.1vw;">Efficient and flexible</span><br>
+              Potency: <span style="font-weight: 800;">112 billion live bacteria per capsule</span> <br>
+              Format: <span style="font-weight: 800;">Box of 20 individually packaged capsules</span>
+            </p>
+          </div>
+          <div class="C-btn">
+            <button class="add-to-cart">ADD TO CART</button>
+          </div>
+        </div>
+    
+        <!-- <button id="next" class="slider-btn"></button> -->
       </div>
-
-
-  
-        </div>  
+    </div>
+     
     <!------------------------------------------------------------- pg-7-end ----------------------------------------------------->
     <!------------------------------------------------------------- pg-8-start ----------------------------------------------------->
     <div class="section-8">
@@ -468,50 +482,39 @@ Format: Box of 12 sachets</p>
      </div>
      <div class="form">
      <div class="Form">
-    <form>
-    <div class="radio-group">
-                <!-- <label> -->
-                 <div class="radio-1">
+      <form id="form" onsubmit="signup(event)">
+        <div class="radio-group">
+            <div class="radio-1">
                 <input type="radio" name="radio-btn" value="say-hi"> Say Hi
-                <!-- </label> -->
-                   </div>
-                   <div class="radio-2">
-                <!-- <label> -->
+            </div>
+            <div class="radio-2">
                 <input type="radio" name="option" value="get-quote"> Get a Quote
-                <!-- </label> -->
-                 </div>
             </div>
-
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Name">
-                <br>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-                <br>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Message"></textarea>
-                <br>
-                <div class="form-p"> 
+        </div>
+    
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="name">
+            <br>
+            <label for="Email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email">
+            <br>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Message"></textarea>
+            <br>
+            <div class="form-p">
                 <p>Processing of personal data</p>
-                </div>
-                <div class="checkbox">
-                <input type="checkbox" name="consent"> I consent to the processing of personal data after reading
-                the Privacy Policy
-                <button type="submit" class="submit-btn">Send Message</button>
-
-                </div>
             </div>
-
-   
+            <div class="checkbox">
+                <input type="checkbox" name="consent"> I consent to the processing of personal data after reading the Privacy Policy
+            </div>
+            <button type="submit" class="btn-submit">Send Message</button>
+        </div>
     </form>
-
-
-
      </div>
      <div class="image">
      <div class="image-11">
-     <img src="Assets/17.png" style=" object-fit="cover">
+     <img src="Assets/17.png" style=" object-fit:cover;">
      </div>
      <img src="Assets/16.png">
      </div>
@@ -519,6 +522,8 @@ Format: Box of 12 sachets</p>
      </div>
     <!------------------------------------------------------------- pg-9-end ----------------------------------------------------->
 
-    <script src="script.js" type="module"></script>
+    <script src="script.js" type="module">
+      
+    </script>
   </body>
 </html>

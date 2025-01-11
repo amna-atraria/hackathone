@@ -7,17 +7,20 @@ body {
   height: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: relative;
 }
 /* <!------------------------------------------------------------- header-start -----------------------------------------------------> */
 
 header {
   height: 18vh;
   width: 100vw;
-
+position: sticky;
+top: 0;
   justify-content: center;
   text-align: center;
   display: flex;
   align-items: center;
+  background-color: #fff;
 }
 p {
   margin: 2vw;
@@ -28,10 +31,23 @@ header p:hover {
   color: hotpink;
   cursor: pointer;
   transition: 0.2s;
+  /* position: sticky; */
 }
 .icon {
-  position: absolute;
+  /* position: absolute; */
   right: 70px;
+  display: flex;
+}
+.cart{
+  width: 14px;
+  height: 16px;
+  background-color: lightgray;
+  font-size: 1vw;
+  
+  border-radius: 50%;
+     margin-top: -1.1vh;
+     margin-left:0.3vw;
+     
 }
 
 /* <!------------------------------------------------------------- header-end -----------------------------------------------------> */
@@ -152,7 +168,7 @@ height: 30%;
 .box {
   border: 2px solid;
   border-style: dashed;
-  border-color: #2a97d1;
+  border-color: #0c6899;
   border-radius: 0.5vw;
   margin: 1vw;
   margin-bottom: 1.5vw;
@@ -247,7 +263,7 @@ height: 30%;
   font-weight: 900;
   margin-top: 0.5vh;
 }
-.section-3-part-1 .text-1 {
+.section-3-part-1 .text-11 {
   margin-left: 2.5vw;
   color: #303542;
   font-weight: bold;
@@ -402,13 +418,16 @@ height: 30%;
   color: #212224;
   /* background-color: #ede8eb; */
 }
-
+.section-7{
+  background-color:rgb(241, 240, 240);
+  width: 100vw;
+  height: 125vh;
+}
 .section-7-heading {
   font-family: "Mulish", serif;
   margin-top: -1vw;
-  width: 100vw;
-  height: 100vh;
-  background-color: #ede8eb;
+ 
+  /* background-color: #dfdcde; */
 }
 .section-7-heading h1 {
   font-family: "Mulish", serif;
@@ -427,72 +446,64 @@ height: 30%;
   color: #222840;
 }
 
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 1000px; /* Adjust to fit your content */
-  margin: auto;
-  margin-top: -65vh;
-  overflow: hidden; /* Hide overflow for neat sliding effect */
-}
-
-.slider {
+.all-cards{
+  display: flex;
+  /* border: 2px solid crimson; */
+  margin-top: -10vw;
+  margin-left: 10vw;
   font-family: "Mulish", serif;
 
-  display: flex;
-  transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
-}
 
-.card {
-  width: 33.333%; /* Each card takes 1/3 of the slider width */
-  margin: 0 10px;
-  /* background-color: #fff; */
- 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+}
+.cards{
+  margin: 5vw;
+}
+.card{
+  width: 25vw;
+  height: 29vw;
+}
+.card-1 .image img{
+   width:100%;
+   height: 90%;
+   object-fit: cover;
+}
+.card-text{
+  text-align: center;
   position: relative;
 }
-
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.card-text h1{
+  margin-top: -6vh;
+  font-size: 2vw;
+  font-weight: 900;
+  color:gray;
 }
-
-.card-content {
-  padding: 20px;
+.card h2{
+font-size: 1.6vw;
+font-weight: 800;
+}
+.card-text p {
+  width: 100%;
+  height: 100%;  
+  line-height: 3vh;
+}
+.image {
+  /* border: 2px solid green;
+  border-radius: 50%; */
+  overflow: hidden;
+}
+.C-btn{
+  width: auto;
+  height: auto;
+  /* background-color:rebeccapurple; */
+  align-items: center;
   text-align: center;
 }
-.card-content p {
-  font-size: 1em;
-  /* color: #555; */
-  margin: 10px 0;
-}
-
-.card-content button {
-  padding: 10px 20px;
-  font-size: 1;
-  
-  color: gray;
-  border: none;
-  border-color: gray;
-  cursor: pointer;
-  border-radius: 15px;
-}
-
-
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2em;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 1;
+.C-btn button{
+  padding: 0.7vw 2.5vw;
+  border: 1px solid gray;
+  border-radius: 2vw;
+  color:  gray;
+  font-size: 1vw;
 }
 
 .left {
@@ -512,7 +523,7 @@ height: 30%;
 .section-8-heading h4 {
   width: 100%;
   color: gray;
-  margin-top: 25vh;
+  margin-top: vh;
   margin-left: 8vw;
   font-size: 1.5vw;
   color: #10b4e6;
@@ -527,7 +538,7 @@ height: 30%;
 .faq-heading h1 {
   font-family: "Mulish", serif;
 
-  color: hotpink;
+  color: rgb(247, 41, 144);
   font-size: 4vw;
   margin-top: -20vw;
   margin-left: 9.5vw;
@@ -699,10 +710,9 @@ button[type="submit"] {
   background-color: #2a97d1;
   color: white;
   padding: 1vw 4vw;
-  width: 40%;
+  width: 80%;
   margin-top: 1vw;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-
